@@ -83,7 +83,8 @@ class Video:
 
                     
                     ocr_pred = ocr.ocr(frame,cls=False)
-                    #print('ocr_pred: ',ocr_pred)
+                    print('ocr_pred: ',ocr_pred)
+                    print('ocr_pred size: ',len(ocr_pred))
                     print('\rprogress: ',i,'/',num_ocr_frames)
                     if (ocr_pred[0]!=None):
                         prev_grey = grey
