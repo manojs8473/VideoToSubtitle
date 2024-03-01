@@ -1,0 +1,46 @@
+Parameters
+1. lang
+
+The language of the subtitles. See attached "supported_languages.png" file
+
+2. conf_threshold
+
+Confidence threshold for word predictions. 
+
+3. sim_threshold
+
+Similarity threshold for subtitle lines. Subtitle lines with larger Levenshtein ratios than this threshold will be merged together. The default value 80 is fine for most cases.
+
+Make it closer to 0 if you get too many duplicated subtitle lines, or make it closer to 100 if you get too few subtitle lines.
+
+4. time_start and time_end
+
+Extract subtitles from only a clip of the video. The subtitle timestamps are still calculated according to the full video length.
+
+5. use_fullframe
+
+By default, the specified cropped area is used for OCR or if a crop is not specified, then the bottom third of the frame will be used. By setting this value to True the entire frame will be used.
+
+6. crop_x, crop_y, crop_width, crop_height
+
+Specifies the bounding area in pixels for the portion of the frame that will be used for OCR.
+
+7. use_gpu
+
+Set to True if performing ocr with gpu
+
+8. brightness_threshold
+
+If set, pixels whose brightness are less than the threshold will be blackened out. Valid brightness values range from 0 (black) to 255 (white). This can help improve accuracy when performing OCR on videos with white subtitles.
+
+9. similar_image_threshold
+
+The number of non-similar pixels there can be before the program considers 2 consecutive frames to be different. If a frame is not different from the previous frame, then the OCR result from the previous frame will be used (which can save a lot of time depending on how fast each OCR inference takes).
+
+10. similar_pixel_threshold
+
+Brightness threshold from 0-255 used with the similar_image_threshold to determine if 2 consecutive frames are different. If the difference between 2 pixels exceeds the threshold, then they will be considered non-similar.
+
+11. frames_to_skip
+
+The number of frames to skip before sampling a frame for OCR. Keep in mind the fps of the input video before increasing.
